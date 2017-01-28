@@ -24,13 +24,13 @@ public class ValidatorTest {
 		URLValidator validator = new URLValidator();
 		
 		for(int i = 0; i<trueTestURL.length; i++){
-			boolean test = validator.checkURL(trueTestURL[i]);
+			boolean test = validator.getCheckURL(trueTestURL[i]);
 			
 			assertEquals(true, test);
 		}
 		
 		for(int i = 0; i<falseTestURL.length; i++){
-			boolean test = validator.checkURL(falseTestURL[i]);
+			boolean test = validator.getCheckURL(falseTestURL[i]);
 			
 			assertEquals(false, test);
 		}
