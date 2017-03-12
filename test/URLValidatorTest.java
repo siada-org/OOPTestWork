@@ -35,5 +35,4 @@ public class URLValidatorTest {
 			assertEquals(false, test);
 		}
 	}
-
 }
