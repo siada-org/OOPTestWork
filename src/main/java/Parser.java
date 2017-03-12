@@ -20,7 +20,7 @@ public class Parser {
 		parseHTML(body);
 	}
 	
-	private void parseHTML(String body){
+	public boolean parseHTML(String body){
 		Document html = Jsoup.parse(body);
 		
 		Map<String, String> linkMap = new HashMap<String, String>();
@@ -39,6 +39,9 @@ public class Parser {
 		}
 		if(exporter.writeInfo("links", linkMap)){
 			System.out.println("Links scan done, count "+linkMap.size());
+			return true;
+		}else{
+			return false;
 		}
 	}
 }

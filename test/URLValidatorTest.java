@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import main.java.URLValidator;
 
-public class ValidatorTest {
+public class URLValidatorTest {
 
 	@Test
 	public void test() {
