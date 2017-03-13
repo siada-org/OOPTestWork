@@ -4,10 +4,14 @@ import org.junit.Test;
 
 import main.java.HttpRequest;
 
+
+//Тест для проверки работы класса HttpRequest, служащего для выполнения http-запросов и получения ответов сервера
 public class URLNameTest {
 
 	@Test(expected = main.java.HttpRequest.HttpRequestException.class)
 	public void test() {
+		
+		//Массив ссылок, которые должны выдать результат true
 		String trueURL[] = {
 			"https://google.com",
 			"https://yandex.ru",
@@ -16,6 +20,7 @@ public class URLNameTest {
 			"https://apple.com"
 		};
 		
+		//Массив ссылок, которые должны вызвать исключение
 		String falseURL[] = {
 			"htp://google.com",
 			"https://ww.google.com",
@@ -29,8 +34,6 @@ public class URLNameTest {
 		
 		for(String url: falseURL){
 			int responseCode = HttpRequest.get(url).code();
-			assertFalse(responseCode==200);
 		}
 	}
-
 }

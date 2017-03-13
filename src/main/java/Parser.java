@@ -8,6 +8,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+//Класс слудид для выполнения парсинга строки
 public class Parser {
 	
 	Exporter exporter;
@@ -25,15 +26,19 @@ public class Parser {
 		
 		Map<String, String> linkMap = new HashMap<String, String>();
 		
+		//Получение description страницы
 		Elements metaDescription = html.select("meta[name=\"description\"]");
 		Elements links = html.select("a");
 		
+		//Получение title страницы
 		String title = html.title();
 		System.out.println("Write title is "+exporter.writeInfo("title", title)+". Title is \""+title+"\"");
 		
+		//Запись и получение отчета о записи title и description
 		String description = metaDescription.attr("content");
 		System.out.println("Write description is "+exporter.writeInfo("description", description)+". Description is \""+description+"\"");
 		
+		//Помещаем все ссылки в хешмап и передаем классу Exporter для записи в файл
 		for(Element link : links){
 			linkMap.put(link.text(), link.attr("href"));
 		}

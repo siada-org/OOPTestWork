@@ -5,10 +5,13 @@ import org.junit.Test;
 import main.java.HttpRequest;
 import main.java.Parser;
 
+//“ест дл€ проверки парсера
 public class ParserTest {
 
 	@Test
 	public void test() {
+		
+		//ћассив адресов, которые должен обработать парсер
 		String testURLs[] = {
 				"https://google.com",
 				"https://yandex.ru",

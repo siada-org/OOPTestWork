@@ -23,21 +23,22 @@ public class Start {
 			siteURL = "empty";
 		}
 		if(siteURL!="empty"){
+			//проверка введеной строки на URL
 			validator = new URLValidator();
 			if(validator.getCheckURL(siteURL)){
 				
 				String adress = null;
 				
-				if(siteURL.contains("http://")){
+				//проверка на наличие протокола в адресе страницы и добавление его в случае отсутствия
+				if(siteURL.contains("http://")||siteURL.contains("https://")){
 					adress = siteURL;
 				}else{
 					adress = "http://"+siteURL;
 				}
-				
+				//получение исходного кода страницы и передача параметром парсеру
 				String response = main.java.HttpRequest.get(adress).body();
 				Parser parser = new Parser(adress);
 				parser.getHTML(response);
-				//System.out.println(response);
 			}else{
 				System.out.println("Web adress invalid, try again. Adress example 'google.com'");
 				run();

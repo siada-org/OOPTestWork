@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+//Класс для записи информации в HTML-файл
 public class Exporter {
 	
 	String FILE_PATH = ".\\report.html";
@@ -26,6 +27,7 @@ public class Exporter {
 		}
 	}
 	
+	//Открытый интерфейс для записи информации в файл
 	public boolean writeInfo(String type, String info){
 		
 		switch(type){
@@ -35,6 +37,7 @@ public class Exporter {
 		}
 	}
 	
+	//Перегрузка метода-интерфейса writeInfo() для записи ссылок из hasMap
 	public boolean writeInfo(String type, Map<String, String> info){
 		switch(type){
 		case "links": return putLinks(info);
@@ -56,6 +59,7 @@ public class Exporter {
 		}
 	};
 	
+	//Закрытая реализация для записи информации в файл
 	private boolean putDescription(String info){
 		try(FileWriter writer = new FileWriter(FILE_PATH, true)){
 			
@@ -69,6 +73,7 @@ public class Exporter {
 		}
 	}
 	
+	//Закрытя реализация для записи ссылок в файл
 	private boolean putLinks(Map<String, String> info){
 		try(FileWriter writer = new FileWriter(FILE_PATH, true)){
 			Set<Entry<String, String>> set = info.entrySet();
